@@ -2,7 +2,7 @@ import os
 import base64
 import logging
 from typing import Dict, List, Any
-from llama_parse import LlamaParse
+from llama_cloud_services import LlamaParse
 from config import Config
 import re
 import json
@@ -14,7 +14,7 @@ class PPTParser:
     def __init__(self):
         self.llama_parser = LlamaParse(
             api_key=Config.LLAMA_CLOUD_API_KEY,
-            result_type="json",
+            num_workers=4,
             verbose=True,
             language="en"
         )
@@ -26,8 +26,8 @@ class PPTParser:
         try:
             logger.info(f"Parsing PPT file: {file_path}")
             
-            # Parse using LlamaParse
-            documents = self.llama_parser.load_data(file_path)
+            # Parse using LlamaParse - correct method
+            result = self.llama_parser.parse(file_path)
             
             parsed_content = {
                 'text': '',
@@ -37,37 +37,79 @@ class PPTParser:
                 'metadata': {}
             }
             
-            for doc in documents:
-                # Extract text content
-                if hasattr(doc, 'text'):
-                    parsed_content['text'] += doc.text + '\n'
+            # Extract text content using get_markdown_documents
+            markdown_documents = result.get_markdown_documents(split_by_page=True)
+            
+            # Process each page/document
+            all_text = ""
+            for i, doc in enumerate(markdown_documents):
+                # Extract markdown text
+                doc_text = doc.markdown if hasattr(doc, 'markdown') else str(doc)
+                all_text += doc_text + "\n\n"
                 
-                # Extract metadata if available
-                if hasattr(doc, 'metadata'):
-                    parsed_content['metadata'].update(doc.metadata)
+                # Create slide information
+                slide_info = {
+                    'slide_number': i + 1,
+                    'content': doc_text,
+                    'word_count': len(doc_text.split()),
+                    'has_bullet_points': bool(re.search(r'[•\-\*]\s+', doc_text)),
+                    'title': self._extract_slide_title(doc_text)
+                }
+                parsed_content['slides'].append(slide_info)
+            
+            parsed_content['text'] = all_text
+            
+            # Try to extract images if available
+            try:
+                image_documents = result.get_image_documents(
+                    include_screenshot_images=True,
+                    include_object_images=True
+                )
                 
-                # Extract images (if available in metadata or extra_info)
-                if hasattr(doc, 'extra_info'):
-                    images = self._extract_images_from_extra_info(doc.extra_info)
-                    parsed_content['images'].extend(images)
+                for img_doc in image_documents:
+                    if hasattr(img_doc, 'image_bytes'):
+                        # Convert image bytes to base64
+                        img_b64 = base64.b64encode(img_doc.image_bytes).decode('utf-8')
+                        image_info = {
+                            'type': 'image',
+                            'data': img_doc.image_bytes,
+                            'format': 'unknown',
+                            'slide_number': 0,
+                            'description': getattr(img_doc, 'description', ''),
+                            'base64': f"data:image/png;base64,{img_b64}"
+                        }
+                        parsed_content['images'].append(image_info)
+            except Exception as img_error:
+                logger.warning(f"Could not extract images: {str(img_error)}")
             
             # Extract links from text
             parsed_content['links'] = self._extract_links_from_text(parsed_content['text'])
-            
-            # Process slides information
-            parsed_content['slides'] = self._process_slides(parsed_content['text'])
             
             # Clean and structure the text
             parsed_content['text'] = self._clean_text(parsed_content['text'])
             
             logger.info(f"Successfully parsed PPT. Found {len(parsed_content['slides'])} slides, "
                        f"{len(parsed_content['images'])} images, {len(parsed_content['links'])} links")
+            logger.info(f"Extracted text length: {len(parsed_content['text'])} characters")
             
             return parsed_content
             
         except Exception as e:
-            logger.error(f"Error parsing PPT file: {str(e)}")
-            raise Exception(f"Failed to parse PPT: {str(e)}")
+            error_msg = str(e)
+            import traceback
+            tb = traceback.format_exc()
+            logger.error(f"Error parsing PPT file: {error_msg}")
+            logger.error(f"Traceback: {tb}")
+            
+            # Provide specific error messages for common issues
+            if 'DNS resolution failed' in error_msg or 'Name or service not known' in error_msg:
+                raise Exception("DNS resolution failed. Cannot reach LlamaParse API. Check internet connection and DNS settings.")
+            elif '401' in error_msg or 'Unauthorized' in error_msg or 'Invalid token format' in error_msg:
+                raise Exception("LlamaParse API key is invalid or expired. Please check your LLAMA_CLOUD_API_KEY in .env file.")
+            elif not Config.LLAMA_CLOUD_API_KEY:
+                raise Exception("LlamaParse API key not set. Please set LLAMA_CLOUD_API_KEY in your .env file.")
+            else:
+                raise Exception(f"Failed to parse PPT: {error_msg}")
     
     def _extract_images_from_extra_info(self, extra_info: Dict) -> List[Dict]:
         """Extract images from extra_info metadata"""
