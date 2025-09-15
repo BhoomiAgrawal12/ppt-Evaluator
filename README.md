@@ -1,6 +1,6 @@
-# SIH PPT Evaluator AI
+# 🎯 SIH Presentation Evaluator
 
-A comprehensive AI-powered system for evaluating PowerPoint presentations for Smart India Hackathon (SIH) submissions. This system analyzes presentations across multiple criteria including technical feasibility, problem statement alignment, visual design, and content originality.
+An advanced AI-powered system for evaluating presentation quality using Google Gemini LLM, built for Smart India Hackathon (SIH) events. Features intelligent evaluation across multiple criteria with support for PPT, PPTX, and PDF files.
 
 ## 🎯 Overview
 

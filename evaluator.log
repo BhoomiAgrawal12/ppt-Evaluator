@@ -1,0 +1,100 @@
+2025-09-16 01:13:10,032 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:13:10,038 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 01:13:10,375 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:13:10,384 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 01:13:29,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\app.py', reloading
+2025-09-16 01:13:29,604 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\app.py.tmp.50664.1757965409597', reloading
+2025-09-16 01:13:30,439 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\app.py', reloading
+2025-09-16 01:13:38,959 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:13:38,966 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 01:13:40,082 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:13:40,086 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 01:13:58,398 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.219:5000
+2025-09-16 01:13:58,399 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 01:13:58,413 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-16 01:14:05,178 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:14:05,185 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 01:17:02,552 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:17:02] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:19:03,694 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.219:5000
+2025-09-16 01:19:03,695 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 01:19:03,697 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 01:19:11,921 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:19:11,925 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 01:19:34,701 - __main__ - INFO - Serving main index page
+2025-09-16 01:19:34,710 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:19:34] "GET / HTTP/1.1" 200 -
+2025-09-16 01:19:34,759 - __main__ - WARNING - 404 error for path: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-16 01:19:34,760 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:19:34] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-16 01:19:37,521 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:19:37] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:19:57,881 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:19:57] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:20:48,993 - __main__ - INFO - [aeb90e6a] === NEW EVALUATION REQUEST ===
+2025-09-16 01:20:48,993 - __main__ - INFO - [aeb90e6a] Request method: POST
+2025-09-16 01:20:48,994 - __main__ - INFO - [aeb90e6a] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 01:20:48,994 - __main__ - INFO - [aeb90e6a] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '1165735', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryA4HXRYzTBTrbch48', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8', 'Cookie': 'cookieconsent_status=dismiss; next-auth.csrf-token=0e3628809b41e4fe1fbb175edcc85b0e826429541c26d5e25878aedfa948be31%7C1083a8b81546441db3f212a7acd12608c10e0f4a35bddeb09295bbd14f3727e1; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..IaB46LbxKz0PdhPA.3wbK4WBY5Vfg4vKZymc1rDGGMhwOZe42CKL0Sq2QTGLpoiadpHu3OlZYJA73rmFKWGWF2-x_MKRCu-mXx7m8gKenNdyWyJ-LKn7I857FB9b4cVMx8s9gskgZ0i_zOKzduBz7uFNNpJLyMaFiHchMD1kFTqc3QKOUrPxjILXE6AcHlcV89qQUF0B4-D1ciuIFYRutq9J9l2mfcSIMxC4TmMU43EV9_2GE5ctRYdn4sQYDIsx8b39ZpAGae0cBcmqa0zASqhheX2ZTNbfHkR5k41vo5GQdKFm2yKqYFWJCLWuQ2_eTjLh76KsUeG2_ScPLpocx5VG5fJ6AGrFoEz5yDNU33JhR_gE5LN_1M-UOHvPKTNtFt18T7Dbz46vHTu2ey3hA7Wmua4Ah-HkxioHXhK1_KnbIHRu-YA.rddChzSjYL7_8BEOUgWt1w'}
+2025-09-16 01:20:49,016 - __main__ - INFO - [aeb90e6a] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 01:20:49,016 - __main__ - INFO - [aeb90e6a] Files in request: ['file']
+2025-09-16 01:20:49,016 - __main__ - INFO - [aeb90e6a] File name: 201CreatedChaos_SIH1286_ppt.pdf
+2025-09-16 01:20:49,017 - __main__ - INFO - [aeb90e6a] Team name: Techies
+2025-09-16 01:20:49,017 - __main__ - INFO - [aeb90e6a] Problem statement length: 139 chars
+2025-09-16 01:20:49,017 - __main__ - INFO - [aeb90e6a] Saving file to: uploads\8272e8d7-eb2e-4471-a4ec-fc5ab4d8ac5f_201CreatedChaos_SIH1286_ppt.pdf
+2025-09-16 01:20:49,023 - __main__ - INFO - [aeb90e6a] File saved successfully. Size: 1165177 bytes
+2025-09-16 01:20:49,023 - __main__ - INFO - [aeb90e6a] Processing file: 201CreatedChaos_SIH1286_ppt.pdf for team: Techies
+2025-09-16 01:20:49,024 - __main__ - INFO - [aeb90e6a] Starting LLM evaluation pipeline...
+2025-09-16 01:20:49,024 - __main__ - INFO - Starting LLM-based evaluation for Techies
+2025-09-16 01:20:49,024 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 01:20:49,024 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\8272e8d7-eb2e-4471-a4ec-fc5ab4d8ac5f_201CreatedChaos_SIH1286_ppt.pdf
+2025-09-16 01:21:02,287 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:02] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:04,377 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:04] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:05,532 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:05] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:05,855 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:05] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:06,676 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:06] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:08,209 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:21:08] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 01:21:24,554 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 01:21:26,019 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/5a978a8a-c9fa-4900-87ef-e27f0a9f1de1 "HTTP/1.1 200 OK"
+2025-09-16 01:21:28,529 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/5a978a8a-c9fa-4900-87ef-e27f0a9f1de1 "HTTP/1.1 200 OK"
+2025-09-16 01:21:32,129 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/5a978a8a-c9fa-4900-87ef-e27f0a9f1de1 "HTTP/1.1 200 OK"
+2025-09-16 01:21:32,876 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/5a978a8a-c9fa-4900-87ef-e27f0a9f1de1/result/json "HTTP/1.1 200 OK"
+2025-09-16 01:21:33,639 - evaluator.ppt_parser - WARNING - Could not extract images: Detected nested async. Please use nest_asyncio.apply() to allow nested event loops.Or, use async entry methods like `aquery()`, `aretriever`, `achat`, etc.
+2025-09-16 01:21:33,642 - evaluator.ppt_parser - INFO - Successfully parsed document. Found 8 slides/pages, 0 images, 0 links
+2025-09-16 01:21:33,642 - evaluator.ppt_parser - INFO - Extracted text length: 2966 characters
+2025-09-16 01:21:33,643 - __main__ - INFO - Step 2: Running LLM evaluation
+2025-09-16 01:21:33,643 - evaluator.llm_evaluator - INFO - Step 1: Detecting AI-generated content
+2025-09-16 01:21:43,673 - evaluator.llm_evaluator - INFO - Step 2: Evaluating technical feasibility
+2025-09-16 01:21:43,674 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:21:51,206 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:21:51,214 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:21:51,215 - evaluator.llm_evaluator - INFO - Step 3: Evaluating problem statement alignment
+2025-09-16 01:21:51,215 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:21:56,351 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:21:56,355 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:21:56,355 - evaluator.llm_evaluator - INFO - Step 4: Evaluating solution quality
+2025-09-16 01:21:56,355 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:22:01,759 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:22:01,761 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:22:01,761 - evaluator.llm_evaluator - INFO - Step 5: Evaluating presentation quality
+2025-09-16 01:22:01,762 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:22:06,994 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:22:06,996 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:22:06,996 - evaluator.llm_evaluator - INFO - Step 6: Evaluating innovation and creativity
+2025-09-16 01:22:06,996 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:22:12,206 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:22:12,208 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:22:12,209 - evaluator.llm_evaluator - INFO - Step 7: Generating final assessment
+2025-09-16 01:22:12,209 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:22:17,949 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:22:17,951 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:22:17,952 - evaluator.llm_evaluator - INFO - LLM evaluation completed for Techies
+2025-09-16 01:22:17,952 - __main__ - INFO - LLM evaluation completed for Techies
+2025-09-16 01:22:17,952 - __main__ - INFO - [aeb90e6a] LLM evaluation completed successfully
+2025-09-16 01:22:17,952 - __main__ - INFO - [aeb90e6a] Storing results in database...
+2025-09-16 01:22:17,964 - database.db_manager - INFO - Stored evaluation 587bc4bf-49fb-4c84-8f52-bb8b0433873a for team Techies
+2025-09-16 01:22:17,964 - __main__ - INFO - [aeb90e6a] Results stored with ID: 587bc4bf-49fb-4c84-8f52-bb8b0433873a
+2025-09-16 01:22:17,964 - __main__ - INFO - [aeb90e6a] Cleaning up uploaded file...
+2025-09-16 01:22:17,967 - __main__ - INFO - [aeb90e6a] File cleanup completed
+2025-09-16 01:22:17,967 - __main__ - INFO - [aeb90e6a] === EVALUATION REQUEST COMPLETED SUCCESSFULLY ===
+2025-09-16 01:22:17,969 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:22:17] "POST /api/evaluate HTTP/1.1" 200 -

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH Presentation Evaluator</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: rgba(118, 75, 162, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: #764ba2;
+            background: rgba(118, 75, 162, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .score-a { background: linear-gradient(135deg, #4CAF50, #45a049); }
+        .score-b { background: linear-gradient(135deg, #2196F3, #1976D2); }
+        .score-c { background: linear-gradient(135deg, #FF9800, #F57C00); }
+        .score-d { background: linear-gradient(135deg, #FF5722, #D84315); }
+        .score-f { background: linear-gradient(135deg, #F44336, #D32F2F); }
+
+        .progress {
+            height: 8px;
+            border-radius: 10px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .progress-bar {
+            border-radius: 10px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .spinner-border {
+            color: #667eea;
+        }
+
+        .alert {
+            border-radius: 15px;
+            border: none;
+        }
+
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            padding: 12px 16px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="main-container p-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 fw-bold text-primary mb-3">
+                            <i class="bi bi-robot"></i> SIH LLM Evaluator
+                        </h1>
+                        <p class="lead text-muted">Upload your presentation for intelligent LLM-based evaluation using Google Gemini</p>
+                    </div>
+
+                    <form id="evaluationForm" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="teamName" class="form-label fw-bold">Team Name</label>
+                                <input type="text" class="form-control" id="teamName" name="team_name" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="evaluationType" class="form-label fw-bold">Evaluation Type</label>
+                                <select class="form-select" id="evaluationType">
+                                    <option value="llm">LLM-Based Evaluation (Gemini AI)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="problemStatement" class="form-label fw-bold">Problem Statement</label>
+                            <textarea class="form-control" id="problemStatement" name="problem_statement" rows="4"
+                                     placeholder="Describe the problem your presentation addresses..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="bi bi-cloud-upload-fill display-1 text-primary mb-3"></i>
+                                <h4>Drop your presentation here</h4>
+                                <p class="text-muted">or click to browse files</p>
+                                <p class="small text-muted">Supports PPT, PPTX, and PDF files (max 16MB)</p>
+                                <input type="file" id="fileInput" name="file" accept=".ppt,.pptx,.pdf" style="display: none;">
+                            </div>
+                            <div id="fileInfo" class="mt-3" style="display: none;">
+                                <div class="alert alert-info d-flex align-items-center">
+                                    <i class="bi bi-file-earmark-slides me-2"></i>
+                                    <span id="fileName"></span>
+                                    <button type="button" class="btn-close ms-auto" id="removeFile"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5" id="evaluateBtn">
+                                <i class="bi bi-play-circle-fill me-2"></i>Start Evaluation
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Loading State -->
+                    <div id="loadingState" class="text-center py-5" style="display: none;">
+                        <div class="spinner-border mb-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h4>Evaluating Presentation...</h4>
+                        <p class="text-muted">This may take a few moments</p>
+                        <div class="progress mx-auto" style="width: 300px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div id="resultsSection" style="display: none;">
+                        <hr class="my-5">
+                        <h2 class="text-center mb-4">
+                            <i class="bi bi-bar-chart-fill"></i> Evaluation Results
+                        </h2>
+
+                        <!-- LLM Evaluation Score -->
+                        <div class="row mb-4 justify-content-center">
+                            <div class="col-md-6 text-center">
+                                <div class="result-card card p-4">
+                                    <div id="llmScoreCircle" class="score-circle"></div>
+                                    <h4>LLM Evaluation Score</h4>
+                                    <p class="text-muted mb-0" id="llmScoreText"></p>
+                                    <p class="text-muted small mt-2" id="llmSummary"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LLM Evaluation Details -->
+                        <div class="row" id="llmEvaluationDetails">
+                            <!-- LLM evaluation details will be populated here -->
+                        </div>
+
+                        <!-- Summary and Recommendations -->
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="result-card card p-4">
+                                    <h5><i class="bi bi-trophy-fill text-warning"></i> Strengths</h5>
+                                    <ul id="strengthsList" class="list-unstyled"></ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="result-card card p-4">
+                                    <h5><i class="bi bi-exclamation-triangle-fill text-danger"></i> Areas for Improvement</h5>
+                                    <ul id="weaknessesList" class="list-unstyled"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="result-card card p-4">
+                                <h5><i class="bi bi-lightbulb-fill text-info"></i> Recommendations</h5>
+                                <ul id="recommendationsList" class="list-unstyled"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Section -->
+                    <div id="errorSection" style="display: none;">
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <span id="errorMessage"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const removeFile = document.getElementById('removeFile');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        removeFile.addEventListener('click', () => {
+            fileInput.value = '';
+            fileInfo.style.display = 'none';
+        });
+
+        function handleFile(file) {
+            const validTypes = ['.ppt', '.pptx', '.pdf'];
+            const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+
+            if (!validTypes.includes(fileExtension)) {
+                alert('Please select a valid PPT, PPTX, or PDF file.');
+                return;
+            }
+
+            if (file.size > 16 * 1024 * 1024) {
+                alert('File size must be less than 16MB.');
+                return;
+            }
+
+            fileName.textContent = file.name;
+            fileInfo.style.display = 'block';
+        }
+
+        // Form submission
+        document.getElementById('evaluationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!fileInput.files[0]) {
+                alert('Please select a file to evaluate.');
+                return;
+            }
+
+            const formData = new FormData(e.target);
+            const evaluationType = document.getElementById('evaluationType').value;
+            const endpoint = '/api/evaluate';  // Only one endpoint now
+
+            // Show loading state
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+            document.getElementById('errorSection').style.display = 'none';
+
+            // Simulate progress
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) progress = 90;
+                progressBar.style.width = progress + '%';
+            }, 500);
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                clearInterval(progressInterval);
+                progressBar.style.width = '100%';
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                setTimeout(() => {
+                    document.getElementById('loadingState').style.display = 'none';
+                    displayResults(data, evaluationType);
+                }, 1000);
+
+            } catch (error) {
+                clearInterval(progressInterval);
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('errorSection').style.display = 'block';
+                document.getElementById('errorMessage').textContent = 'Error: ' + error.message;
+            }
+        });
+
+        function displayResults(data, evaluationType) {
+            document.getElementById('resultsSection').style.display = 'block';
+
+            // Display LLM evaluation score
+            const finalAssessment = data.final_assessment || {};
+            const llmScore = finalAssessment.overall_score || 0;
+            const grade = finalAssessment.grade || 'F';
+            const summary = finalAssessment.summary || 'No summary available';
+
+            updateScoreCircle('llmScoreCircle', 'llmScoreText', llmScore, grade);
+            document.getElementById('llmSummary').textContent = summary;
+
+            // Display LLM evaluation details
+            const evaluations = data.evaluations || {};
+            displayLLMEvaluationDetails(evaluations);
+
+            // Display summary and recommendations
+            displayLLMSummary(finalAssessment);
+        }
+
+        function updateScoreCircle(circleId, textId, score, grade = null) {
+            const circle = document.getElementById(circleId);
+            const text = document.getElementById(textId);
+
+            const percentage = Math.round(score * 100);
+            const displayGrade = grade || scoreToGrade(score);
+
+            circle.textContent = percentage + '%';
+            circle.className = 'score-circle score-' + displayGrade.toLowerCase().replace('+', '');
+            text.textContent = `Grade: ${displayGrade}`;
+        }
+
+        function scoreToGrade(score) {
+            if (score >= 0.9) return 'A+';
+            if (score >= 0.8) return 'A';
+            if (score >= 0.7) return 'B';
+            if (score >= 0.6) return 'C';
+            if (score >= 0.5) return 'D';
+            return 'F';
+        }
+
+        function displayLLMEvaluationDetails(evaluations) {
+            const llmDetails = document.getElementById('llmEvaluationDetails');
+            llmDetails.innerHTML = '';
+
+            const criteriaNames = {
+                'technical_feasibility': 'Technical Feasibility',
+                'problem_alignment': 'Problem Alignment',
+                'solution_quality': 'Solution Quality',
+                'presentation_quality': 'Presentation Quality',
+                'innovation': 'Innovation & Creativity'
+            };
+
+            for (const [criteria, evaluation] of Object.entries(evaluations)) {
+                if (!evaluation || evaluation.error) continue;
+
+                const col = document.createElement('div');
+                col.className = 'col-md-6 mb-4';
+
+                const card = document.createElement('div');
+                card.className = 'result-card card p-3';
+
+                const score = Math.round((evaluation.score || 0) * 100);
+                const criteriaName = criteriaNames[criteria] || criteria.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+                // Get strengths/highlights from the evaluation
+                const highlights = evaluation.strengths || evaluation.highlights || evaluation.key_alignments || [];
+                const concerns = evaluation.concerns || evaluation.weaknesses || evaluation.gaps || [];
+
+                let highlightHTML = '';
+                if (highlights.length > 0) {
+                    highlightHTML = '<div class="mt-2"><small class="text-success">✓ ' + highlights.slice(0, 2).join('<br>✓ ') + '</small></div>';
+                }
+
+                let concernHTML = '';
+                if (concerns.length > 0) {
+                    concernHTML = '<div class="mt-1"><small class="text-warning">⚠ ' + concerns.slice(0, 2).join('<br>⚠ ') + '</small></div>';
+                }
+
+                card.innerHTML = `
+                    <h6><i class="bi bi-brain"></i> ${criteriaName}</h6>
+                    <div class="progress mb-2">
+                        <div class="progress-bar" style="width: ${score}%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">${score}%</small>
+                        <small class="text-muted">${scoreToGrade(score / 100)}</small>
+                    </div>
+                    ${highlightHTML}
+                    ${concernHTML}
+                `;
+
+                col.appendChild(card);
+                llmDetails.appendChild(col);
+            }
+        }
+
+        function displayLLMSummary(finalAssessment) {
+            const strengthsList = document.getElementById('strengthsList');
+            const weaknessesList = document.getElementById('weaknessesList');
+            const recommendationsList = document.getElementById('recommendationsList');
+
+            strengthsList.innerHTML = '';
+            weaknessesList.innerHTML = '';
+            recommendationsList.innerHTML = '';
+
+            // Top strengths
+            (finalAssessment.top_strengths || []).forEach(strength => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-check-circle text-success me-2"></i>${strength}`;
+                strengthsList.appendChild(li);
+            });
+
+            // Key weaknesses
+            (finalAssessment.key_weaknesses || []).forEach(weakness => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-x-circle text-danger me-2"></i>${weakness}`;
+                weaknessesList.appendChild(li);
+            });
+
+            // Critical recommendations
+            (finalAssessment.critical_recommendations || finalAssessment.improvement_roadmap || []).forEach(recommendation => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-lightbulb text-info me-2"></i>${recommendation}`;
+                recommendationsList.appendChild(li);
+            });
+
+            // If we have judge comments, add them to recommendations
+            if (finalAssessment.judge_comments) {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-person-badge text-primary me-2"></i><strong>Judge Comments:</strong> ${finalAssessment.judge_comments}`;
+                li.className = 'mt-3 p-2 border-start border-primary border-3';
+                recommendationsList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
