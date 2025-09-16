@@ -98,3 +98,333 @@
 2025-09-16 01:22:17,967 - __main__ - INFO - [aeb90e6a] File cleanup completed
 2025-09-16 01:22:17,967 - __main__ - INFO - [aeb90e6a] === EVALUATION REQUEST COMPLETED SUCCESSFULLY ===
 2025-09-16 01:22:17,969 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:22:17] "POST /api/evaluate HTTP/1.1" 200 -
+2025-09-16 01:27:42,439 - __main__ - INFO - Serving main index page
+2025-09-16 01:27:42,440 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:27:42] "GET / HTTP/1.1" 200 -
+2025-09-16 01:27:42,487 - __main__ - WARNING - 404 error for path: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-16 01:27:42,487 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:27:42] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-16 01:28:53,472 - __main__ - INFO - [2311383c] === NEW EVALUATION REQUEST ===
+2025-09-16 01:28:53,472 - __main__ - INFO - [2311383c] Request method: POST
+2025-09-16 01:28:53,473 - __main__ - INFO - [2311383c] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 01:28:53,473 - __main__ - INFO - [2311383c] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '1630059', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryRtduk9b9epN918IA', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8', 'Cookie': 'cookieconsent_status=dismiss; next-auth.csrf-token=0e3628809b41e4fe1fbb175edcc85b0e826429541c26d5e25878aedfa948be31%7C1083a8b81546441db3f212a7acd12608c10e0f4a35bddeb09295bbd14f3727e1; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..12GZU_Z6kpvYczl5.LcHuo54NCegRvWDFWLKO6pP8CoNp1HvoI10AYFqKY9aUzBpwTZJXv6qAKR7hBaEEqLi-Wtk-eDarVym4MLJWweT9U_fAOvRxR3wAVJEfZOGPFlMsmqRhfFY5wuYZ7u3FxVXFkh2yllVuWF8Uaf9kptGAPl9sd1YO7crMt1gr8AW5k1CGdPzX6BiG0E8c1PoJMYwapK1tWp0BJHzgk9sW12CsgPjMS54j09XIhxcW6MzdLdMUcfC-TkjhSZJaWcLB-GI203IsWUaOInS2gKP88_NiqaPfOLqVIlAG7BUX_V69e7cKf3hrSzUKJ48EqHHig4AGBY1z9MQs4K6hiKrR9M7fpmZFJuVQr7-mgj-5ZqljDp2y99MpKZOdyMUH4gpRb5cmlA4c2c0pnbGVuCoRINsvsagMBCXsDQ.t0d8LwVu0gDXJZkRbS7-fQ'}
+2025-09-16 01:28:53,488 - __main__ - INFO - [2311383c] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 01:28:53,489 - __main__ - INFO - [2311383c] Files in request: ['file']
+2025-09-16 01:28:53,489 - __main__ - INFO - [2311383c] File name: NB307_CodeX_gigas.pdf
+2025-09-16 01:28:53,489 - __main__ - INFO - [2311383c] Team name: gigas
+2025-09-16 01:28:53,489 - __main__ - INFO - [2311383c] Problem statement length: 2675 chars
+2025-09-16 01:28:53,490 - __main__ - INFO - [2311383c] Saving file to: uploads\27062960-c963-4262-9c99-d31844f15a33_NB307_CodeX_gigas.pdf
+2025-09-16 01:28:53,505 - __main__ - INFO - [2311383c] File saved successfully. Size: 1626932 bytes
+2025-09-16 01:28:53,506 - __main__ - INFO - [2311383c] Processing file: NB307_CodeX_gigas.pdf for team: gigas
+2025-09-16 01:28:53,506 - __main__ - INFO - [2311383c] Starting LLM evaluation pipeline...
+2025-09-16 01:28:53,506 - __main__ - INFO - Starting LLM-based evaluation for gigas
+2025-09-16 01:28:53,507 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 01:28:53,507 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\27062960-c963-4262-9c99-d31844f15a33_NB307_CodeX_gigas.pdf
+2025-09-16 01:28:59,973 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 01:29:01,447 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:04,169 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:07,803 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:12,419 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:18,728 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:25,116 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:30,720 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622 "HTTP/1.1 200 OK"
+2025-09-16 01:29:31,644 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/73dd507d-662b-4853-a256-16d3ae10b622/result/json "HTTP/1.1 200 OK"
+2025-09-16 01:29:33,205 - evaluator.ppt_parser - WARNING - Could not extract images: Detected nested async. Please use nest_asyncio.apply() to allow nested event loops.Or, use async entry methods like `aquery()`, `aretriever`, `achat`, etc.
+2025-09-16 01:29:33,206 - evaluator.ppt_parser - INFO - Successfully parsed document. Found 6 slides/pages, 0 images, 0 links
+2025-09-16 01:29:33,206 - evaluator.ppt_parser - INFO - Extracted text length: 2196 characters
+2025-09-16 01:29:33,206 - __main__ - INFO - Step 2: Running LLM evaluation
+2025-09-16 01:29:33,206 - evaluator.llm_evaluator - INFO - Step 1: Detecting AI-generated content
+2025-09-16 01:29:40,768 - evaluator.llm_evaluator - INFO - Step 2: Evaluating technical feasibility
+2025-09-16 01:29:40,768 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:29:48,402 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:29:48,404 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:29:48,405 - evaluator.llm_evaluator - INFO - Step 3: Evaluating problem statement alignment
+2025-09-16 01:29:48,405 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:29:54,945 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:29:54,948 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:29:54,949 - evaluator.llm_evaluator - INFO - Step 4: Evaluating solution quality
+2025-09-16 01:29:54,949 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:30:00,486 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:30:00,489 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:30:00,489 - evaluator.llm_evaluator - INFO - Step 5: Evaluating presentation quality
+2025-09-16 01:30:00,490 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:30:05,898 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:30:05,900 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:30:05,900 - evaluator.llm_evaluator - INFO - Step 6: Evaluating innovation and creativity
+2025-09-16 01:30:05,900 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:30:12,148 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:30:12,151 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:30:12,151 - evaluator.llm_evaluator - INFO - Step 7: Generating final assessment
+2025-09-16 01:30:12,152 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:30:17,835 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:30:17,837 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:30:17,837 - evaluator.llm_evaluator - INFO - LLM evaluation completed for gigas
+2025-09-16 01:30:17,838 - __main__ - INFO - LLM evaluation completed for gigas
+2025-09-16 01:30:17,838 - __main__ - INFO - [2311383c] LLM evaluation completed successfully
+2025-09-16 01:30:17,838 - __main__ - INFO - [2311383c] Storing results in database...
+2025-09-16 01:30:17,847 - database.db_manager - INFO - Stored evaluation f83ae4e7-e28a-460a-a7de-46bb3b6e3e10 for team gigas
+2025-09-16 01:30:17,848 - __main__ - INFO - [2311383c] Results stored with ID: f83ae4e7-e28a-460a-a7de-46bb3b6e3e10
+2025-09-16 01:30:17,848 - __main__ - INFO - [2311383c] Cleaning up uploaded file...
+2025-09-16 01:30:17,849 - __main__ - INFO - [2311383c] File cleanup completed
+2025-09-16 01:30:17,849 - __main__ - INFO - [2311383c] === EVALUATION REQUEST COMPLETED SUCCESSFULLY ===
+2025-09-16 01:30:17,852 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:30:17] "POST /api/evaluate HTTP/1.1" 200 -
+2025-09-16 01:35:25,501 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\config.py', reloading
+2025-09-16 01:35:25,538 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\evaluator\\ppt_parser.py', reloading
+2025-09-16 01:35:25,550 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\evaluator\\llm_evaluator.py', reloading
+2025-09-16 01:35:25,555 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\quick_test.py', reloading
+2025-09-16 01:35:26,265 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-16 01:35:33,903 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:35:33,909 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 01:46:35,607 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\evaluator\\__init__.py', reloading
+2025-09-16 01:46:36,958 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-16 01:46:44,037 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:46:44,044 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 01:47:44,193 - __main__ - INFO - Serving main index page
+2025-09-16 01:47:44,203 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 01:47:44] "GET / HTTP/1.1" 200 -
+2025-09-16 01:49:12,553 - __main__ - INFO - [324cc890] === NEW EVALUATION REQUEST ===
+2025-09-16 01:49:12,553 - __main__ - INFO - [324cc890] Request method: POST
+2025-09-16 01:49:12,554 - __main__ - INFO - [324cc890] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 01:49:12,554 - __main__ - INFO - [324cc890] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '3625875', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryEOZkPiIPQKqkIPGq', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8', 'Cookie': 'cookieconsent_status=dismiss; next-auth.csrf-token=0e3628809b41e4fe1fbb175edcc85b0e826429541c26d5e25878aedfa948be31%7C1083a8b81546441db3f212a7acd12608c10e0f4a35bddeb09295bbd14f3727e1; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..Dh_VVF4OO0aaTamQ.bGF_nrNGOszSkO_buLzKWsuRnMElv9FuEyZUJLrZUPN9zR-2U2UCR37nIjeKhoqkDtylDg8jiSHTCo7-dOXVDYLD63tC1VYzrKbWABoIjlbk-sbVZ5PgpFewbohP5js0IrjJ6IFoc6hF9CLBimxUPoPp7zbzuT2Bcw8YydvG3q2anSxcF9ynvqYv76U-_RNQgGplRCNwVQr56IqrfintG78QAcmrxgEw32hpIXjXDeNheWD8ryWI572ZhGRyq2iHCWLy5HHW0z_miC-Rwz4mEydsVic9tOk6BgBufpcliSWm9uVJvpt5f5Lwg8sSwHv_tVuq7UN0g29Au1XcFJ8cu35BVdCgMWij8PROpB8jgUy8TkHpA9gOOjE51Fbxcuj1GwToHHaNLJ9IONhS3bheOvsyZghckVrQLw.stD2KMTUi2iapIQvm0qK-g'}
+2025-09-16 01:49:12,576 - __main__ - INFO - [324cc890] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 01:49:12,576 - __main__ - INFO - [324cc890] Files in request: ['file']
+2025-09-16 01:49:12,576 - __main__ - INFO - [324cc890] File name: Copy of SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 01:49:12,577 - __main__ - INFO - [324cc890] Team name: 405_resolved
+2025-09-16 01:49:12,577 - __main__ - INFO - [324cc890] Problem statement length: 5851 chars
+2025-09-16 01:49:12,577 - __main__ - INFO - [324cc890] Saving file to: uploads\20860cb8-1799-4fa6-9b64-9f4103b7f3c3_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 01:49:12,592 - __main__ - INFO - [324cc890] File saved successfully. Size: 3619344 bytes
+2025-09-16 01:49:12,592 - __main__ - INFO - [324cc890] Processing file: Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf for team: 405_resolved
+2025-09-16 01:49:12,592 - __main__ - INFO - [324cc890] Starting LLM evaluation pipeline...
+2025-09-16 01:49:12,593 - __main__ - INFO - Starting LLM-based evaluation for 405_resolved
+2025-09-16 01:49:12,593 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 01:49:12,593 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\20860cb8-1799-4fa6-9b64-9f4103b7f3c3_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 01:49:22,065 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 01:49:23,725 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:26,228 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:29,801 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:34,283 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:39,766 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:45,423 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:51,582 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:57,703 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327 "HTTP/1.1 200 OK"
+2025-09-16 01:49:58,289 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/23ff8381-3d4b-4229-8c1e-56127ef28327/result/json "HTTP/1.1 200 OK"
+2025-09-16 01:49:59,229 - evaluator.ppt_parser - WARNING - Could not extract images: Detected nested async. Please use nest_asyncio.apply() to allow nested event loops.Or, use async entry methods like `aquery()`, `aretriever`, `achat`, etc.
+2025-09-16 01:49:59,232 - evaluator.ppt_parser - INFO - Successfully parsed document. Found 16 slides/pages, 0 images, 7 links
+2025-09-16 01:49:59,232 - evaluator.ppt_parser - INFO - Extracted text length: 5188 characters
+2025-09-16 01:49:59,232 - __main__ - INFO - Step 2: Running LLM evaluation
+2025-09-16 01:49:59,232 - evaluator.llm_evaluator - INFO - Step 1: Detecting AI-generated content
+2025-09-16 01:50:11,194 - evaluator.llm_evaluator - INFO - Step 2: Evaluating technical feasibility
+2025-09-16 01:50:11,194 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:50:18,409 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:50:18,411 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:50:18,412 - evaluator.llm_evaluator - INFO - Step 3: Evaluating problem statement alignment
+2025-09-16 01:50:18,412 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:50:24,330 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:50:24,331 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:50:24,332 - evaluator.llm_evaluator - INFO - Step 4: Evaluating solution quality
+2025-09-16 01:50:24,332 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:50:30,229 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:50:30,232 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:50:30,232 - evaluator.llm_evaluator - INFO - Step 5: Evaluating presentation quality
+2025-09-16 01:50:30,233 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:50:37,230 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-09-16 01:50:37,232 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-09-16 01:50:37,232 - evaluator.llm_evaluator - INFO - Step 6: Evaluating innovation and creativity
+2025-09-16 01:50:37,232 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-09-16 01:50:41,002 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\full_test.py', reloading
+2025-09-16 01:50:41,212 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\create_test_ppt.py', reloading
+2025-09-16 01:50:42,580 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-16 01:50:50,082 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 01:50:50,087 - werkzeug - INFO -  * Debugger PIN: 863-083-002
+2025-09-16 12:10:06,773 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\evaluator\\llm_evaluator.py', reloading
+2025-09-16 12:10:06,800 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\test_with_ppt.py', reloading
+2025-09-16 12:10:06,851 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Bhoomi\\Desktop\\EvaluatorAI\\evaluator\\ppt_parser.py', reloading
+2025-09-16 17:06:33,938 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.19:5000
+2025-09-16 17:06:33,938 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 17:06:33,942 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 17:06:42,847 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 17:06:42,853 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 17:26:37,475 - __main__ - INFO - Serving main index page
+2025-09-16 17:26:37,495 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:26:37] "GET / HTTP/1.1" 200 -
+2025-09-16 17:26:37,916 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:26:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 17:29:04,966 - __main__ - INFO - [36cdf83b] === NEW EVALUATION REQUEST ===
+2025-09-16 17:29:04,967 - __main__ - INFO - [36cdf83b] Request method: POST
+2025-09-16 17:29:04,967 - __main__ - INFO - [36cdf83b] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 17:29:04,968 - __main__ - INFO - [36cdf83b] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '833864', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryHhhU8mENzmdt9rh7', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 17:29:04,986 - __main__ - INFO - [36cdf83b] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 17:29:04,986 - __main__ - INFO - [36cdf83b] Files in request: ['file']
+2025-09-16 17:29:04,986 - __main__ - INFO - [36cdf83b] File name: Semicolon;_1286_PPT.pptx
+2025-09-16 17:29:04,986 - __main__ - INFO - [36cdf83b] Team name: Semicolon
+2025-09-16 17:29:04,987 - __main__ - INFO - [36cdf83b] Problem statement length: 139 chars
+2025-09-16 17:29:04,988 - __main__ - INFO - [36cdf83b] Saving file to: uploads\c5d09324-9a52-4d8d-97cc-5cda1a691fc1_Semicolon_1286_PPT.pptx
+2025-09-16 17:29:04,993 - __main__ - INFO - [36cdf83b] File saved successfully. Size: 833253 bytes
+2025-09-16 17:29:04,994 - __main__ - INFO - [36cdf83b] Processing file: Semicolon_1286_PPT.pptx for team: Semicolon
+2025-09-16 17:29:04,994 - __main__ - INFO - [36cdf83b] Starting LLM evaluation pipeline...
+2025-09-16 17:29:04,994 - __main__ - INFO - Starting LLM-based evaluation for Semicolon
+2025-09-16 17:29:04,994 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 17:29:04,995 - evaluator.ppt_parser - INFO - Parsing .PPTX file: uploads\c5d09324-9a52-4d8d-97cc-5cda1a691fc1_Semicolon_1286_PPT.pptx
+2025-09-16 17:29:10,097 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 17:29:11,515 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/762b959b-cd59-49b6-bf09-4a1f1c8aca89 "HTTP/1.1 200 OK"
+2025-09-16 17:29:13,931 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/762b959b-cd59-49b6-bf09-4a1f1c8aca89 "HTTP/1.1 200 OK"
+2025-09-16 17:29:17,373 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/762b959b-cd59-49b6-bf09-4a1f1c8aca89 "HTTP/1.1 200 OK"
+2025-09-16 17:30:59,129 - __main__ - WARNING - 404 error for path: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-16 17:35:50,453 - __main__ - INFO - Serving main index page
+2025-09-16 17:38:51,342 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:38:51] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-16 17:38:51,345 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:38:51] "GET / HTTP/1.1" 200 -
+2025-09-16 17:39:21,720 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.60:5000
+2025-09-16 17:39:21,720 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 17:39:21,729 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 17:39:31,005 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 17:39:31,019 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 17:39:47,582 - __main__ - INFO - Serving main index page
+2025-09-16 17:39:47,593 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:39:47] "GET / HTTP/1.1" 200 -
+2025-09-16 17:39:47,821 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:39:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 17:40:41,908 - __main__ - INFO - [aef41178] === NEW EVALUATION REQUEST ===
+2025-09-16 17:40:41,909 - __main__ - INFO - [aef41178] Request method: POST
+2025-09-16 17:40:41,909 - __main__ - INFO - [aef41178] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 17:40:41,909 - __main__ - INFO - [aef41178] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '833864', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary9B3k3nKdEUm9PbF7', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 17:40:42,114 - __main__ - INFO - [aef41178] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 17:40:42,114 - __main__ - INFO - [aef41178] Files in request: ['file']
+2025-09-16 17:40:42,114 - __main__ - INFO - [aef41178] File name: Semicolon;_1286_PPT.pptx
+2025-09-16 17:40:42,114 - __main__ - INFO - [aef41178] Team name: Semicolon
+2025-09-16 17:40:42,114 - __main__ - INFO - [aef41178] Problem statement length: 139 chars
+2025-09-16 17:40:42,131 - __main__ - INFO - [aef41178] Saving file to: uploads\92172748-698a-452b-8e4a-63bd230fca99_Semicolon_1286_PPT.pptx
+2025-09-16 17:40:42,136 - __main__ - INFO - [aef41178] File saved successfully. Size: 833253 bytes
+2025-09-16 17:40:42,136 - __main__ - INFO - [aef41178] Processing file: Semicolon_1286_PPT.pptx for team: Semicolon
+2025-09-16 17:40:42,136 - __main__ - INFO - [aef41178] Starting LLM evaluation pipeline...
+2025-09-16 17:40:42,136 - __main__ - INFO - Starting LLM-based evaluation for Semicolon
+2025-09-16 17:40:42,136 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 17:40:42,136 - evaluator.ppt_parser - INFO - Parsing .PPTX file: uploads\92172748-698a-452b-8e4a-63bd230fca99_Semicolon_1286_PPT.pptx
+2025-09-16 17:40:46,802 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 17:40:48,251 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/ba255ec2-63f6-4f8f-a9c4-e0e832a1d787 "HTTP/1.1 200 OK"
+2025-09-16 17:40:50,710 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/ba255ec2-63f6-4f8f-a9c4-e0e832a1d787 "HTTP/1.1 200 OK"
+2025-09-16 17:40:54,181 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/ba255ec2-63f6-4f8f-a9c4-e0e832a1d787 "HTTP/1.1 200 OK"
+2025-09-16 17:48:20,081 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.60:5000
+2025-09-16 17:48:20,081 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 17:48:20,085 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 17:48:29,295 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 17:48:29,304 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 17:48:29,326 - __main__ - INFO - Serving main index page
+2025-09-16 17:48:29,328 - __main__ - INFO - Serving main index page
+2025-09-16 17:48:29,330 - __main__ - INFO - Serving main index page
+2025-09-16 17:48:29,339 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:48:29] "GET / HTTP/1.1" 200 -
+2025-09-16 17:48:29,348 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:48:29] "GET / HTTP/1.1" 200 -
+2025-09-16 17:48:29,355 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:48:29] "GET / HTTP/1.1" 200 -
+2025-09-16 17:48:29,612 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:48:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 17:48:54,458 - __main__ - INFO - [7f243b1c] === NEW EVALUATION REQUEST ===
+2025-09-16 17:48:54,458 - __main__ - INFO - [7f243b1c] Request method: POST
+2025-09-16 17:48:54,458 - __main__ - INFO - [7f243b1c] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 17:48:54,459 - __main__ - INFO - [7f243b1c] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '833864', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryqkljBSE24dW2JNkB', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 17:48:54,539 - __main__ - INFO - [7f243b1c] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 17:48:54,540 - __main__ - INFO - [7f243b1c] Files in request: ['file']
+2025-09-16 17:48:54,540 - __main__ - INFO - [7f243b1c] File name: Semicolon;_1286_PPT.pptx
+2025-09-16 17:48:54,540 - __main__ - INFO - [7f243b1c] Team name: Semicolon
+2025-09-16 17:48:54,540 - __main__ - INFO - [7f243b1c] Problem statement length: 139 chars
+2025-09-16 17:48:54,542 - __main__ - INFO - [7f243b1c] Saving file to: uploads\f6c5919e-6ac9-4623-9725-03c78cd7df63_Semicolon_1286_PPT.pptx
+2025-09-16 17:48:54,546 - __main__ - INFO - [7f243b1c] File saved successfully. Size: 833253 bytes
+2025-09-16 17:48:54,546 - __main__ - INFO - [7f243b1c] Processing file: Semicolon_1286_PPT.pptx for team: Semicolon
+2025-09-16 17:48:54,546 - __main__ - INFO - [7f243b1c] Starting LLM evaluation pipeline...
+2025-09-16 17:48:54,546 - __main__ - INFO - Starting LLM-based evaluation for Semicolon
+2025-09-16 17:48:54,546 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 17:48:54,547 - evaluator.ppt_parser - INFO - Parsing .PPTX file: uploads\f6c5919e-6ac9-4623-9725-03c78cd7df63_Semicolon_1286_PPT.pptx
+2025-09-16 17:49:00,665 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 17:49:02,231 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/a2e1851a-5bd8-4a7b-a3f1-3f81b2821f91 "HTTP/1.1 200 OK"
+2025-09-16 17:56:25,501 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.60:5000
+2025-09-16 17:56:25,501 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 17:56:25,507 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 17:56:34,695 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 17:56:34,706 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 17:56:34,730 - __main__ - INFO - Serving main index page
+2025-09-16 17:56:34,747 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:56:34] "GET / HTTP/1.1" 200 -
+2025-09-16 17:56:35,320 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 17:56:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 17:57:42,988 - __main__ - INFO - [f03c2c2d] === NEW EVALUATION REQUEST ===
+2025-09-16 17:57:42,989 - __main__ - INFO - [f03c2c2d] Request method: POST
+2025-09-16 17:57:42,989 - __main__ - INFO - [f03c2c2d] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 17:57:42,990 - __main__ - INFO - [f03c2c2d] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '3625875', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryg1V7GsM9yPv46G8B', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 17:57:43,913 - __main__ - INFO - [f03c2c2d] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 17:57:43,913 - __main__ - INFO - [f03c2c2d] Files in request: ['file']
+2025-09-16 17:57:43,913 - __main__ - INFO - [f03c2c2d] File name: Copy of SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 17:57:43,913 - __main__ - INFO - [f03c2c2d] Team name: mickey mouse
+2025-09-16 17:57:43,913 - __main__ - INFO - [f03c2c2d] Problem statement length: 5851 chars
+2025-09-16 17:57:43,938 - __main__ - INFO - [f03c2c2d] Saving file to: uploads\438facd2-e896-4d6f-8f77-d3f2778b6c6b_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 17:57:43,950 - __main__ - INFO - [f03c2c2d] File saved successfully. Size: 3619344 bytes
+2025-09-16 17:57:43,950 - __main__ - INFO - [f03c2c2d] Processing file: Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf for team: mickey mouse
+2025-09-16 17:57:43,950 - __main__ - INFO - [f03c2c2d] Starting LLM evaluation pipeline...
+2025-09-16 17:57:43,950 - __main__ - INFO - Starting LLM-based evaluation for mickey mouse
+2025-09-16 17:57:43,950 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 17:57:43,951 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\438facd2-e896-4d6f-8f77-d3f2778b6c6b_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 17:57:54,209 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 17:57:55,944 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/269d3745-b647-497d-8c6c-7ea3d8f54791 "HTTP/1.1 200 OK"
+2025-09-16 17:57:58,379 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/269d3745-b647-497d-8c6c-7ea3d8f54791 "HTTP/1.1 200 OK"
+2025-09-16 18:07:35,171 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.60:5000
+2025-09-16 18:07:35,171 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 18:07:35,175 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 18:07:44,297 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 18:07:44,307 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 18:08:29,312 - __main__ - INFO - Serving main index page
+2025-09-16 18:08:29,323 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 18:08:29] "GET / HTTP/1.1" 200 -
+2025-09-16 18:08:29,427 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 18:08:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 18:09:26,228 - __main__ - INFO - [f88e39f2] === NEW EVALUATION REQUEST ===
+2025-09-16 18:09:26,230 - __main__ - INFO - [f88e39f2] Request method: POST
+2025-09-16 18:09:26,230 - __main__ - INFO - [f88e39f2] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 18:09:26,230 - __main__ - INFO - [f88e39f2] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '3625871', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryBePilTKF3JxGvTbs', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 18:09:26,313 - __main__ - INFO - [f88e39f2] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 18:09:26,313 - __main__ - INFO - [f88e39f2] Files in request: ['file']
+2025-09-16 18:09:26,313 - __main__ - INFO - [f88e39f2] File name: Copy of SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:09:26,313 - __main__ - INFO - [f88e39f2] Team name: Bornvita
+2025-09-16 18:09:26,313 - __main__ - INFO - [f88e39f2] Problem statement length: 5851 chars
+2025-09-16 18:09:26,315 - __main__ - INFO - [f88e39f2] Saving file to: uploads\d3d99349-fab0-4759-85e8-45640dee9f0c_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:09:26,328 - __main__ - INFO - [f88e39f2] File saved successfully. Size: 3619344 bytes
+2025-09-16 18:09:26,328 - __main__ - INFO - [f88e39f2] Processing file: Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf for team: Bornvita
+2025-09-16 18:09:26,328 - __main__ - INFO - [f88e39f2] Starting LLM evaluation pipeline...
+2025-09-16 18:09:26,329 - __main__ - INFO - Starting LLM-based evaluation for Bornvita
+2025-09-16 18:09:26,329 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 18:09:26,329 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\d3d99349-fab0-4759-85e8-45640dee9f0c_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:09:35,108 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 18:09:36,556 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/9a8c85a9-637c-4285-a3e6-e3eccc04f894 "HTTP/1.1 200 OK"
+2025-09-16 18:09:39,170 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/9a8c85a9-637c-4285-a3e6-e3eccc04f894 "HTTP/1.1 200 OK"
+2025-09-16 18:19:45,447 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 18:19:45] "GET /api/status HTTP/1.1" 200 -
+2025-09-16 18:39:10,175 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.60:5000
+2025-09-16 18:39:10,176 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-16 18:39:10,178 - werkzeug - INFO -  * Restarting with stat
+2025-09-16 18:39:19,091 - werkzeug - WARNING -  * Debugger is active!
+2025-09-16 18:39:19,100 - werkzeug - INFO -  * Debugger PIN: 689-107-359
+2025-09-16 18:39:22,370 - __main__ - INFO - Serving main index page
+2025-09-16 18:39:22,385 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 18:39:22] "GET / HTTP/1.1" 200 -
+2025-09-16 18:39:22,654 - werkzeug - INFO - 127.0.0.1 - - [16/Sep/2025 18:39:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-09-16 18:40:36,668 - __main__ - INFO - [c0ccf26c] === NEW EVALUATION REQUEST ===
+2025-09-16 18:40:36,668 - __main__ - INFO - [c0ccf26c] Request method: POST
+2025-09-16 18:40:36,668 - __main__ - INFO - [c0ccf26c] Request URL: http://localhost:5000/api/evaluate
+2025-09-16 18:40:36,669 - __main__ - INFO - [c0ccf26c] Request headers: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '3622502', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryYM2pxgyBczeHV0bs', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-IN;q=0.9,en-US;q=0.8,en;q=0.7', 'Cookie': 'ajs_anonymous_id=2839b448-b24f-4fde-8efe-39748a02349a; _streamlit_xsrf=2|87a5a851|77c0da92e44e46f047eb96162c191fb4|1756017699; next-auth.csrf-token=8360e6c98be3b8d8b78fcaecd1bd47cc8b75b33a59115294efc7ad7252374b64%7C690c600447d17bc22f93a91574fe6009605593148a220addea6b0cf8479484aa; next-auth.callback-url=http%3A%2F%2Flocalhost%3A4001%2F; __next_hmr_refresh_hash__=429a5a8fbab80fd9b1bf25e67cd984ba633457081244afec'}
+2025-09-16 18:40:36,736 - __main__ - INFO - [c0ccf26c] Form data keys: ['team_name', 'problem_statement']
+2025-09-16 18:40:36,736 - __main__ - INFO - [c0ccf26c] Files in request: ['file']
+2025-09-16 18:40:36,736 - __main__ - INFO - [c0ccf26c] File name: Copy of SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:40:36,736 - __main__ - INFO - [c0ccf26c] Team name: Kajukatli
+2025-09-16 18:40:36,736 - __main__ - INFO - [c0ccf26c] Problem statement length: 2675 chars
+2025-09-16 18:40:36,738 - __main__ - INFO - [c0ccf26c] Saving file to: uploads\53e00ab3-eb26-4483-a7b8-6501b593ab98_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:40:36,749 - __main__ - INFO - [c0ccf26c] File saved successfully. Size: 3619344 bytes
+2025-09-16 18:40:36,749 - __main__ - INFO - [c0ccf26c] Processing file: Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf for team: Kajukatli
+2025-09-16 18:40:36,749 - __main__ - INFO - [c0ccf26c] Starting LLM evaluation pipeline...
+2025-09-16 18:40:36,750 - __main__ - INFO - Starting LLM-based evaluation for Kajukatli
+2025-09-16 18:40:36,750 - __main__ - INFO - Step 1: Parsing Document
+2025-09-16 18:40:36,750 - evaluator.ppt_parser - INFO - Parsing .PDF file: uploads\53e00ab3-eb26-4483-a7b8-6501b593ab98_Copy_of_SIH2024_IDEA_Presentation_Format.pptx.pdf
+2025-09-16 18:40:36,750 - evaluator.ppt_parser - INFO - Starting LlamaParse with 180s timeout...
+2025-09-16 18:40:46,966 - httpx - INFO - HTTP Request: POST https://api.cloud.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+2025-09-16 18:40:48,437 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/64f01301-6eda-4fc2-b8de-4b5b55b03e65 "HTTP/1.1 200 OK"
+2025-09-16 18:40:51,081 - httpx - INFO - HTTP Request: GET https://api.cloud.llamaindex.ai/api/parsing/job/64f01301-6eda-4fc2-b8de-4b5b55b03e65 "HTTP/1.1 200 OK"
+2025-09-16 18:43:36,761 - evaluator.ppt_parser - WARNING - Function parse timed out after 180 seconds

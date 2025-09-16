@@ -26,6 +26,9 @@ class Config:
     GEMINI_MODEL = 'gemini-1.5-flash'
     LLM_EVALUATION_TIMEOUT = 60  # seconds
     MAX_RETRY_ATTEMPTS = 3
+
+    # Document Parsing Configuration
+    DOCUMENT_PARSE_TIMEOUT = 180  # seconds (3 minutes for document parsing)
     
     # Logging Configuration
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')

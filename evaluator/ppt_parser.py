@@ -1,34 +1,87 @@
 import os
 import base64
 import logging
-from typing import Dict, List, Any
+import threading
+import time
+from typing import Dict, List, Any, Optional
 from llama_cloud_services import LlamaParse
 from config import Config
 import re
 import json
+import nest_asyncio
+from functools import wraps
+
+# Apply nest_asyncio to fix async conflicts
+nest_asyncio.apply()
 
 logger = logging.getLogger(__name__)
+
+
+class ParseTimeoutError(Exception):
+    """Custom timeout error for parsing operations"""
+    pass
+
+
+def run_with_timeout(func, args=(), kwargs=None, timeout_duration=300):
+    """Run a function with timeout using threading (Windows compatible)"""
+    if kwargs is None:
+        kwargs = {}
+
+    result = [None]
+    exception = [None]
+
+    def target():
+        try:
+            result[0] = func(*args, **kwargs)
+        except Exception as e:
+            exception[0] = e
+
+    thread = threading.Thread(target=target)
+    thread.daemon = True
+    thread.start()
+    thread.join(timeout_duration)
+
+    if thread.is_alive():
+        logger.warning(f"Function {func.__name__} timed out after {timeout_duration} seconds")
+        raise ParseTimeoutError(f"Function {func.__name__} timed out after {timeout_duration} seconds")
+
+    if exception[0]:
+        raise exception[0]
+
+    return result[0]
 
 
 class DocumentParser:
     def __init__(self):
         self.llama_parser = LlamaParse(
             api_key=Config.LLAMA_CLOUD_API_KEY,
-            num_workers=4,
+            num_workers=1,
             verbose=True,
             language="en"
         )
     
-    def parse_document(self, file_path: str) -> Dict[str, Any]:
+    def parse_document(self, file_path: str, timeout: Optional[int] = None) -> Dict[str, Any]:
         """
         Parse PPT, PDF, or image files using LlamaParse and extract all content including text, images, and links
+
+        Args:
+            file_path: Path to the file to parse
+            timeout: Timeout in seconds for parsing operation (default: from config)
         """
+        if timeout is None:
+            timeout = Config.DOCUMENT_PARSE_TIMEOUT
+
         try:
             file_ext = os.path.splitext(file_path)[1].lower()
             logger.info(f"Parsing {file_ext.upper()} file: {file_path}")
 
-            # Parse using LlamaParse for all supported file types
-            result = self.llama_parser.parse(file_path)
+            # Parse using LlamaParse with timeout
+            logger.info(f"Starting LlamaParse with {timeout}s timeout...")
+            result = run_with_timeout(
+                self.llama_parser.parse,
+                args=(file_path,),
+                timeout_duration=timeout
+            )
             
             parsed_content = {
                 'text': '',
@@ -139,13 +192,16 @@ class DocumentParser:
             
             return parsed_content
             
+        except ParseTimeoutError as e:
+            logger.error(f"Document parsing timed out: {str(e)}")
+            raise Exception(f"Document parsing timed out after {timeout} seconds. The file may be too large or the LlamaParse service is slow.")
         except Exception as e:
             error_msg = str(e)
             import traceback
             tb = traceback.format_exc()
             logger.error(f"Error parsing document: {error_msg}")
             logger.error(f"Traceback: {tb}")
-            
+
             # Provide specific error messages for common issues
             if 'DNS resolution failed' in error_msg or 'Name or service not known' in error_msg:
                 raise Exception("DNS resolution failed. Cannot reach LlamaParse API. Check internet connection and DNS settings.")
